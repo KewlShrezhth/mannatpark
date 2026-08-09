@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Menu, X, ShieldCheck, UserPlus } from 'lucide-react';
+import { Phone, Menu, X, ShieldCheck, UserPlus, Camera } from 'lucide-react';
 import Logo from './Logo';
 import { MANNAT_PARK_INFO } from '../data/properties';
 
@@ -20,9 +20,10 @@ export default function Navbar({ onOpenVisitModal }) {
         {/* Navigation Links */}
         <nav className="hidden lg:flex items-center space-x-7 text-xs font-bold uppercase tracking-wider text-stone-700">
           <a href="#properties" className="hover:text-[#185226] transition-colors py-1">Plots & Homes</a>
-          <a href="#community" className="hover:text-[#185226] transition-colors py-1 text-[#185226] flex items-center gap-1 font-extrabold">
-            <UserPlus className="w-3.5 h-3.5" /> Neighbors Map
+          <a href="#tour" className="hover:text-[#185226] transition-colors py-1 text-[#185226] flex items-center gap-1 font-extrabold">
+            <Camera className="w-3.5 h-3.5" /> Project Tour
           </a>
+          <a href="#community" className="hover:text-[#185226] transition-colors py-1">Neighbors Map</a>
           <a href="#amenities" className="hover:text-[#185226] transition-colors py-1">Park & Amenities</a>
           <a href="#locality" className="hover:text-[#185226] transition-colors py-1">Location</a>
           <a href="#contact" className="hover:text-[#185226] transition-colors py-1">Contact Developer</a>
@@ -60,7 +61,8 @@ export default function Navbar({ onOpenVisitModal }) {
       {mobileMenuOpen && (
         <div className="lg:hidden bg-white border-b border-stone-200 px-4 py-4 space-y-3 text-center text-xs font-bold uppercase text-stone-800">
           <a href="#properties" onClick={() => setMobileMenuOpen(false)} className="block py-1">Plots & Homes</a>
-          <a href="#community" onClick={() => setMobileMenuOpen(false)} className="block py-1 text-[#185226]">Neighbors Map</a>
+          <a href="#tour" onClick={() => setMobileMenuOpen(false)} className="block py-1 text-[#185226]">Project Tour</a>
+          <a href="#community" onClick={() => setMobileMenuOpen(false)} className="block py-1">Neighbors Map</a>
           <a href="#amenities" onClick={() => setMobileMenuOpen(false)} className="block py-1">Park & Amenities</a>
           <a href="#locality" onClick={() => setMobileMenuOpen(false)} className="block py-1">Location Details</a>
           <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="block py-1">Contact Developer</a>

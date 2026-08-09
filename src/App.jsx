@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import PropertyExplorer from './components/PropertyExplorer';
+import ProjectTourSection from './components/ProjectTourSection';
 import ResidentCommunityMap from './components/ResidentCommunityMap';
 import AmenitiesSection from './components/AmenitiesSection';
 import ContactSection from './components/ContactSection';
@@ -46,6 +47,9 @@ export default function App() {
         onSelectProperty={(prop) => setSelectedProperty(prop)}
         onOpenVisitModal={(prop) => handleOpenVisitModal(prop)}
       />
+
+      {/* Official 99acres Project Tour & Video Showcase */}
+      <ProjectTourSection />
 
       {/* Resident Community & Neighbors Connect Map */}
       <ResidentCommunityMap />
