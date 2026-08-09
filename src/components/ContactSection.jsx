@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, MessageSquare, MapPin, Send, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { Phone, MessageSquare, Send, CheckCircle2 } from 'lucide-react';
 import { MANNAT_PARK_INFO } from '../data/properties';
 
 export default function ContactSection() {
@@ -17,34 +17,34 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-16 bg-white border-t border-stone-200 text-stone-900">
+    <section id="contact" className="py-16 bg-white border-t border-emerald-100 text-stone-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="max-w-4xl mx-auto p-8 sm:p-10 rounded-3xl bg-stone-50 border border-stone-200 shadow-sm text-left">
+        <div className="max-w-4xl mx-auto p-8 sm:p-10 rounded-3xl bg-emerald-50/50 border border-emerald-100 shadow-sm text-left">
           
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             
             {/* Contact Info */}
             <div className="md:col-span-5 space-y-4">
-              <span className="px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold uppercase tracking-wider">
+              <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">
                 Direct Developer Sales
               </span>
-              <h3 className="text-2xl sm:text-3xl font-bold text-stone-900 font-serif">
+              <h3 className="text-2xl sm:text-3xl font-bold text-emerald-950 font-serif">
                 Contact MAK Infra
               </h3>
               <p className="text-xs text-stone-600 leading-relaxed">
-                Have questions about 3 BHK villas or residential plot availability at The Mannat Park, Dharampura, Jagdalpur?
+                Interested in 3 BHK houses or residential plots at The Mannat Park, Dharampura Negiguda Road, Jagdalpur?
               </p>
 
               <div className="space-y-3 pt-2 text-xs">
                 <a 
                   href={`tel:${MANNAT_PARK_INFO.phone}`}
-                  className="flex items-center space-x-3 p-3 rounded-xl bg-white border border-stone-200 hover:border-amber-600 transition-colors"
+                  className="flex items-center space-x-3 p-3 rounded-xl bg-white border border-emerald-200 hover:border-emerald-500 transition-colors"
                 >
-                  <Phone className="w-4 h-4 text-amber-700" />
+                  <Phone className="w-4 h-4 text-emerald-700" />
                   <div>
                     <div className="text-stone-500">Call Direct</div>
-                    <div className="font-bold text-stone-900">{MANNAT_PARK_INFO.phone}</div>
+                    <div className="font-bold text-emerald-950">{MANNAT_PARK_INFO.phone}</div>
                   </div>
                 </a>
 
@@ -52,11 +52,11 @@ export default function ContactSection() {
                   href={`https://wa.me/919425250000?text=Hi%20MAK%20Infra,%20I%20am%20interested%20in%20The%20Mannat%20Park,%20Dharampura,%20Jagdalpur.`}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center space-x-3 p-3 rounded-xl bg-emerald-50 border border-emerald-200 hover:border-emerald-500 transition-colors"
+                  className="flex items-center space-x-3 p-3 rounded-xl bg-emerald-100/80 border border-emerald-300 hover:border-emerald-600 transition-colors"
                 >
-                  <MessageSquare className="w-4 h-4 text-emerald-700" />
+                  <MessageSquare className="w-4 h-4 text-emerald-800" />
                   <div>
-                    <div className="text-emerald-800 font-medium">WhatsApp Inquiry</div>
+                    <div className="text-emerald-900 font-medium">WhatsApp Inquiry</div>
                     <div className="font-bold text-emerald-950">Chat with Sales Team</div>
                   </div>
                 </a>
@@ -64,10 +64,10 @@ export default function ContactSection() {
             </div>
 
             {/* Form */}
-            <div className="md:col-span-7 bg-white p-6 rounded-2xl border border-stone-200">
+            <div className="md:col-span-7 bg-white p-6 rounded-2xl border border-emerald-100">
               {!submitted ? (
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <h4 className="text-base font-bold text-stone-900 font-serif">Inquire / Request Callback</h4>
+                  <h4 className="text-base font-bold text-emerald-950 font-serif">Request Callback / Details</h4>
                   
                   <div>
                     <label className="block text-xs font-bold text-stone-700 mb-1">Your Full Name *</label>
@@ -77,7 +77,7 @@ export default function ContactSection() {
                       placeholder="e.g. Ramesh Sahu"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-3 py-2 rounded-lg bg-stone-50 border border-stone-300 text-xs text-stone-900 outline-none focus:border-amber-600"
+                      className="w-full px-3 py-2 rounded-lg bg-emerald-50/40 border border-emerald-200 text-xs text-stone-900 outline-none focus:border-emerald-600"
                     />
                   </div>
 
@@ -89,7 +89,7 @@ export default function ContactSection() {
                       placeholder="+91 94252 00000"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-3 py-2 rounded-lg bg-stone-50 border border-stone-300 text-xs text-stone-900 outline-none focus:border-amber-600"
+                      className="w-full px-3 py-2 rounded-lg bg-emerald-50/40 border border-emerald-200 text-xs text-stone-900 outline-none focus:border-emerald-600"
                     />
                   </div>
 
@@ -98,7 +98,7 @@ export default function ContactSection() {
                     <select
                       value={formData.propertyType}
                       onChange={(e) => setFormData({ ...formData, propertyType: e.target.value })}
-                      className="w-full px-3 py-2 rounded-lg bg-stone-50 border border-stone-300 text-xs text-stone-900 outline-none focus:border-amber-600"
+                      className="w-full px-3 py-2 rounded-lg bg-emerald-50/40 border border-emerald-200 text-xs text-stone-900 outline-none focus:border-emerald-600"
                     >
                       <option value="3 BHK Home">3 BHK Independent House</option>
                       <option value="Residential Plot">Residential Plot</option>
@@ -108,17 +108,17 @@ export default function ContactSection() {
 
                   <button
                     type="submit"
-                    className="w-full py-3 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs shadow-md shadow-amber-600/20 flex items-center justify-center gap-1.5"
+                    className="w-full py-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs shadow-md shadow-emerald-700/20 flex items-center justify-center gap-1.5"
                   >
-                    <Send className="w-4 h-4" /> Send Request
+                    <Send className="w-4 h-4" /> Send Inquiry Request
                   </button>
                 </form>
               ) : (
                 <div className="py-8 text-center space-y-3">
                   <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto" />
-                  <h4 className="text-xl font-bold text-stone-900 font-serif">Thank You!</h4>
+                  <h4 className="text-xl font-bold text-emerald-950 font-serif">Thank You!</h4>
                   <p className="text-xs text-stone-600">
-                    We have received your inquiry. Our representative will contact you shortly at <strong className="text-stone-900">{formData.phone}</strong>.
+                    We have received your inquiry. Our sales representative will call you shortly at <strong className="text-stone-900">{formData.phone}</strong>.
                   </p>
                 </div>
               )}

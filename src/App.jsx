@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import PropertyExplorer from './components/PropertyExplorer';
+import ResidentCommunityMap from './components/ResidentCommunityMap';
 import AmenitiesSection from './components/AmenitiesSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
@@ -27,7 +28,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-stone-50 text-stone-900 font-sans selection:bg-amber-600 selection:text-white">
+    <div className="min-h-screen bg-stone-50 text-stone-900 font-sans selection:bg-[#185226] selection:text-white">
       
       {/* Header */}
       <Navbar 
@@ -45,6 +46,9 @@ export default function App() {
         onSelectProperty={(prop) => setSelectedProperty(prop)}
         onOpenVisitModal={(prop) => handleOpenVisitModal(prop)}
       />
+
+      {/* Resident Community & Neighbors Connect Map */}
+      <ResidentCommunityMap />
 
       {/* Amenities & Nearby Landmarks */}
       <AmenitiesSection />
