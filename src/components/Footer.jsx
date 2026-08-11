@@ -1,9 +1,9 @@
 import React from 'react';
-import { ShieldCheck, MapPin, Phone, Mail } from 'lucide-react';
+import { ShieldCheck, MapPin, Phone, Mail, Lock } from 'lucide-react';
 import Logo from './Logo';
 import { MANNAT_PARK_INFO } from '../data/properties';
 
-export default function Footer() {
+export default function Footer({ onOpenOwnerAdmin }) {
   return (
     <footer className="bg-stone-950 text-stone-300 py-12 text-left">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,8 +53,17 @@ export default function Footer() {
 
         </div>
 
-        <div className="text-[11px] text-stone-500 text-center space-y-1">
+        <div className="text-[11px] text-stone-500 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p>© 2026 The Mannat Park by MAK Infra. Registered under Chhattisgarh RERA ({MANNAT_PARK_INFO.reraNo}).</p>
+
+          <button
+            type="button"
+            onClick={onOpenOwnerAdmin}
+            className="text-stone-400 hover:text-emerald-400 flex items-center gap-1.5 font-bold transition-colors cursor-pointer"
+          >
+            <Lock className="w-3.5 h-3.5 text-emerald-400" />
+            <span>Owner Admin Access</span>
+          </button>
         </div>
 
       </div>

@@ -1,10 +1,18 @@
 import React from 'react';
-import { X, Check, MapPin, Phone, ShieldCheck, Compass } from 'lucide-react';
+import { X, Check, MapPin, Phone, ShieldCheck, Layers } from 'lucide-react';
 import PropertyImagePlaceholder from './PropertyImagePlaceholder';
 import { MANNAT_PARK_INFO } from '../data/properties';
 
 export default function PropertyDetailModal({ property, onClose, onOpenVisitModal }) {
   if (!property) return null;
+
+  const scrollToLayouts = () => {
+    onClose();
+    const elem = document.getElementById('layouts');
+    if (elem) {
+      elem.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-emerald-950/60 backdrop-blur-xs animate-fade-in">
@@ -13,12 +21,19 @@ export default function PropertyDetailModal({ property, onClose, onOpenVisitModa
         {/* Modal Header */}
         <div className="px-6 py-4 border-b border-emerald-100 flex items-center justify-between bg-emerald-50/70">
           <div>
-            <div className="text-xs text-[#185226] font-bold uppercase">{property.category} • The Mannat Park</div>
+            <div className="text-xs text-[#185226] font-bold uppercase flex items-center gap-1.5">
+              <span>{property.category}</span>
+              {property.phase && (
+                <span className="px-2 py-0.5 rounded bg-emerald-100 text-[#185226] text-[10px] font-extrabold border border-emerald-200">
+                  {property.phase}
+                </span>
+              )}
+            </div>
             <h3 className="text-xl font-bold text-stone-950 font-serif mt-0.5">{property.title}</h3>
           </div>
           <button 
             onClick={onClose}
-            className="p-1.5 rounded-lg hover:bg-emerald-100 text-emerald-800 hover:text-emerald-950 transition-colors"
+            className="p-1.5 rounded-lg hover:bg-emerald-100 text-emerald-800 hover:text-emerald-950 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -90,6 +105,23 @@ export default function PropertyDetailModal({ property, onClose, onOpenVisitModa
             </div>
           </div>
 
+          {/* Layout Plan Shortcut Banner */}
+          <div className="p-4 rounded-xl bg-gradient-to-r from-stone-900 to-stone-850 text-white flex items-center justify-between text-xs">
+            <div className="flex items-center gap-2.5">
+              <Layers className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+              <div>
+                <div className="font-bold text-white">View Approved Layout Map</div>
+                <div className="text-stone-300 text-[11px]">Inspect complete plot layout for {property.phase || "The Mannat Park"}</div>
+              </div>
+            </div>
+            <button
+              onClick={scrollToLayouts}
+              className="px-3.5 py-2 rounded-lg bg-[#185226] hover:bg-emerald-800 text-white font-bold transition-colors flex-shrink-0 cursor-pointer"
+            >
+              Open Layout Map
+            </button>
+          </div>
+
           {/* Address & Developer */}
           <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-xs space-y-1">
             <div className="font-bold text-stone-950">Developer: {MANNAT_PARK_INFO.developer}</div>
@@ -115,7 +147,7 @@ export default function PropertyDetailModal({ property, onClose, onOpenVisitModa
               onClose();
               onOpenVisitModal(property);
             }}
-            className="px-6 py-2.5 rounded-xl bg-[#185226] hover:bg-emerald-900 text-white font-bold text-xs shadow-md shadow-emerald-900/20"
+            className="px-6 py-2.5 rounded-xl bg-[#185226] hover:bg-emerald-900 text-white font-bold text-xs shadow-md shadow-emerald-900/20 cursor-pointer"
           >
             Inquire About This Property
           </button>
